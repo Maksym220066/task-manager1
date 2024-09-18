@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { type ModelRef, ref } from "vue";
 import type { Status } from "@/stores/tasks";
 
 type Emits = {
@@ -37,7 +37,7 @@ type Emits = {
 
 const emits = defineEmits<Emits>()
 
-const statusDialog = defineModel()
+const statusDialog: ModelRef<boolean> = defineModel({ default: false });
 const titleTask = ref<string>('')
 const statusCard = ref<Status | null>(null)
 
@@ -54,7 +54,7 @@ const closeDialog = () => {
 }
 
 const saveCard = () => {
-  if (titleTask.value) {
+  if (titleTask.value && statusCard.value) {
     emits('save', titleTask.value, statusCard.value)
   }
 

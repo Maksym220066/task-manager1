@@ -15,13 +15,12 @@
           v-model="dataTask.priority"
           label="Priority"
           :items="priorityItems"
-
     >
-      <template #selection="{ item ,props:selectProps }">
+      <template #selection="{ item}">
         <AppStatusPriority :priority="item.value" />
       </template>
-      <template #item="{ item, props: { onClick } }">
-        <v-list-item @click="onClick">
+      <template #item="{ item, props  }">
+        <v-list-item v-bind="{...props, title: ''}">
           <AppStatusPriority :priority="item.value" />
         </v-list-item>
       </template>
@@ -30,13 +29,12 @@
           v-model="dataTask.status"
           label="Priority"
           :items="statusItems"
-
     >
-      <template #selection="{ item ,props:selectProps }">
+      <template #selection="{ item }">
         <AppStatus :status="item.value" />
       </template>
-      <template #item="{ item, props: { onClick } }">
-        <v-list-item @click="onClick">
+      <template #item="{ item, props }">
+        <v-list-item v-bind="{...props, title: ''}">
           <AppStatus :status="item.value" />
         </v-list-item>
       </template>
@@ -63,7 +61,6 @@
         <v-list-item
               v-bind="props"
               :prepend-avatar="item.raw.avatar"
-              :subtitle="item.raw.group"
               :title="item.raw.name"
         ></v-list-item>
       </template>
@@ -89,7 +86,6 @@
         <v-list-item
               v-bind="props"
               :prepend-avatar="item.raw.avatar"
-              :subtitle="item.raw.group"
               :title="item.raw.name"
         ></v-list-item>
       </template>
