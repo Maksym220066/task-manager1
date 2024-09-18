@@ -37,38 +37,7 @@ export type Task = {
 }
 
 export const useTasksStore = defineStore('tasks', () => {
-    const generalTasks = ref<Task[]>(
-        [
-            {
-                id: '1',
-                description: 'Це професійне свято було встановлено 1993 року, хоча спочатку воно не мало офіційного статусу. Метою цього дня є вшанування працівників страхового ринку, які забезпечують фінансову стабільність та захист громадян і підприємств від різних ризиків. Це свято є нагодою висловити подяку всім, хто працює у сфері страхування, за їхню важливу роботу. Вони допомагають людям відчувати себе більш захищеними та впевненими у майбутньому.',
-                priority: Priority.High,
-                status: Status.InProgress,
-                title: 'fix overlap text, fix overlap text ,fix overlap text ,fix overlap textasd '
-            },
-            {
-                id: '2',
-                description: 'asdsd',
-                priority: Priority.High,
-                status: Status.Todo,
-                title: 'Todo task'
-            },
-            {
-                id: '3',
-                description: 'asdsd',
-                priority: Priority.High,
-                status: Status.Done,
-                title: 'Done TASK'
-            },
-            {
-                id: '4',
-                description: 'asdsd',
-                priority: Priority.High,
-                status: Status.Done,
-                title: 'Done TASK'
-            },
-        
-        ])
+    const generalTasks = ref<Task[]>([])
     
     const todoTasks = computed(() => generalTasks.value.filter(el => el.status === Status.Todo))
     const inProgressTasks = computed(() => generalTasks.value.filter(el => el.status === Status.InProgress))
